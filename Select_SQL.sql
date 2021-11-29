@@ -3,12 +3,12 @@ select genre_name, count(ArtistGenre.artist_id) from Genre
 	group by Genre.genre_name;
 	
 select album_title, album_year, count(track.id) from Album
-	join track on track.album_id = album.id
+	join Track on Track.album_id = Album.id
 	where album_year >= 2019 and album_year <= 2020
 	group by album_title, album_year;
 	
-select album_title, round(AVG(track.track_length), 2) from Album
-	join track on album.id = track.album_id
+select album_title, round(AVG(Track.track_length), 2) from Album
+	join Track on Album.id = Track.album_id
 	group by album_title; 
 	
 select artist_name, album_year from Artist
