@@ -24,10 +24,6 @@ select distinct collection_name from Collection
 	join Artist on ArtistAlbum.artist_id = Artist.id 
 	where artist_name like 'Ariana Grande';
 
-insert into ArtistGenre(artist_id, genre_id)
-	values 
-	(3, 7);
-
 select album_title from Album 
 	join ArtistAlbum on Album.id = ArtistAlbum.album_id 
 	join Artist on Artist.id = ArtistAlbum.artist_id 
@@ -44,16 +40,6 @@ select Artist.artist_name, Track.track_length from Artist
 	join Album on Album.id = ArtistAlbum.album_id 
 	join Track on Track.album_id = Album.id 
 	where Track.track_length in (select min(track_length) from Track);
-	
-insert into Track(track_title, track_length, album_id) 
-	values 
-	('Number 1', 175, 1),
-	('Secret Garden', 150, 2),
-	('Umbrella', 155, 3),
-	('The Sun', 160, 4),
-	('The Window', 165, 5),
-	('Paradise', 170, 6),
-	('Rainbow', 175, 7);
 
 select album_title, count(Track.id) from Album 
 	join Track on Album.id = Track.album_id 
